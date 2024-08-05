@@ -75,6 +75,7 @@ var (
 	fail              = ReadOggBytesFromPath("assets/jingles_PIZZI07.ogg")
 	laser_sound       = ReadOggBytesFromPath("assets/laserLarge_002.ogg")
 	explode_sound     = ReadOggBytesFromPath("assets/explosionCrunch_002.ogg")
+	impact            = ReadOggBytesFromPath("assets/impactWood_heavy_004.ogg")
 	brick_sounds      = [][]byte{
 		brick1,
 		brick2,
@@ -162,6 +163,28 @@ func (g *Game) Update() error {
 	g.t += 1
 
 	if g.gameOver {
+		if g.t == 100 {
+			sePlayer := g.audio_context.NewPlayerFromBytes(impact)
+			sePlayer.SetVolume(
+				1,
+			)
+			sePlayer.Play()
+		}
+		if g.t == 200 {
+			sePlayer := g.audio_context.NewPlayerFromBytes(impact)
+			sePlayer.SetVolume(
+				1,
+			)
+			sePlayer.Play()
+		}
+		if g.t == 300 {
+			sePlayer := g.audio_context.NewPlayerFromBytes(impact)
+			sePlayer.SetVolume(
+				1,
+			)
+			sePlayer.Play()
+		}
+
 		if inpututil.IsMouseButtonJustPressed(ebiten.MouseButton0) {
 			g.gameOver = false
 			g.level = 0
